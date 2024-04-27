@@ -6,7 +6,7 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
 import { Head, useForm } from "@inertiajs/react";
 
-export default function Login({ status }) {
+export default function Login() {
     const { data, setData, post, processing, errors, reset } = useForm({
         email: "",
         password: "",
@@ -26,13 +26,7 @@ export default function Login({ status }) {
 
     return (
         <GuestLayout>
-            <Head title="Log in" />
-
-            {status && (
-                <div className="mb-4 font-medium text-sm text-green-600">
-                    {status}
-                </div>
-            )}
+            <Head title="ログイン" />
 
             <form onSubmit={submit}>
                 <div>
@@ -70,7 +64,7 @@ export default function Login({ status }) {
 
                 <div className="flex items-center justify-end mt-4">
                     <PrimaryButton className="ms-4" disabled={processing}>
-                        Log in
+                        ログイン
                     </PrimaryButton>
                 </div>
             </form>
