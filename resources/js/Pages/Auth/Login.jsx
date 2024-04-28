@@ -5,12 +5,15 @@ import InputLabel from "@/Components/InputLabel";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
 import { Head, useForm } from "@inertiajs/react";
+import { useLaravelReactI18n } from "laravel-react-i18n";
 
 export default function Login() {
     const { data, setData, post, processing, errors, reset } = useForm({
         email: "",
         password: "",
     });
+
+    const { t, currentLocale } = useLaravelReactI18n();
 
     useEffect(() => {
         return () => {
@@ -26,11 +29,11 @@ export default function Login() {
 
     return (
         <GuestLayout>
-            <Head title="ログイン" />
+            <Head title={t("Log in")} />
 
             <form onSubmit={submit}>
                 <div>
-                    <InputLabel htmlFor="email" value="Email" />
+                    <InputLabel htmlFor="email" value={t("Email")} />
 
                     <TextInput
                         id="email"
@@ -47,7 +50,7 @@ export default function Login() {
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
+                    <InputLabel htmlFor="password" value={t("Password")} />
 
                     <TextInput
                         id="password"
