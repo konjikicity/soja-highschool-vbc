@@ -30,7 +30,7 @@ export default function Authenticated({ children }) {
                                     href={route("logout")}
                                     method="post"
                                     as="button"
-                                    class="hover:opacity-40"
+                                    className="hover:opacity-40"
                                 >
                                     ログアウト
                                 </Link>
