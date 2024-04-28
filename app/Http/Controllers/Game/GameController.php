@@ -3,16 +3,26 @@
 namespace App\Http\Controllers\Game;
 
 use App\Http\Controllers\Controller;
+use App\Services\GameService;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class GameController extends Controller
 {
+    private GameService $gameService;
+
     /**
      * Display the login view.
      */
+    public function __construct(GameService $gameService)
+    {
+
+        $this->gameService = $gameService;
+    }
+
     public function index(): Response
     {
-        return Inertia::render('Game/Index');
+        $games = $this->gameService->index();
+        return Inertia::render('Game/Index', ['games' => $games]);
     }
 }

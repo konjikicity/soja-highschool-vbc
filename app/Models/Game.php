@@ -5,20 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class YouTubeUrl extends Model
+class Game extends Model
 {
     use HasFactory;
 
-    protected $table = 'youtube_urls';
+    protected $table = 'games';
 
     protected $fillable = [
         'title',
         'description',
-        'url',
-        'post_date',
+        'youtube_url',
+        'game_date',
     ];
 
     protected $casts = [
-        'post_date' => 'date'
+        'game_date' => 'date'
     ];
 }
