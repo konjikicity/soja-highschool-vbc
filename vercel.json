@@ -29,13 +29,12 @@
         }
     ],
     "env": {
-        "APP_LOCALE": "ja",
-        "APP_FALLBACK_LOCALE": "ja",
-        "APP_FAKER_LOCALE": "ja_JP",
-        "APP_TIMEZONE": "Asia/Tokyo",
+        "APP_NAME": "SOJA_VBC",
         "APP_ENV": "production",
         "APP_DEBUG": "false",
         "APP_URL": "https://soja-highschool-vbc.vercel.app",
+        "CACHE_STORE": "array",
+        "SESSION_DRIVER": "cookie",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
         "APP_PACKAGES_CACHE": "/tmp/packages.php",
@@ -43,11 +42,8 @@
         "APP_SERVICES_CACHE": "/tmp/services.php",
         "VIEW_COMPILED_PATH": "/tmp",
         "SSR_TEMP_PATH": "/tmp/ssr",
-        "NODE_PATH": "node",
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
-        "SESSION_DRIVER": "database",
-        "QUEUE_CONNECTION": "sync",
         "VITE_APP_NAME": "SOJA_VBC"
     }
 }
