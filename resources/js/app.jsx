@@ -5,6 +5,7 @@ import { createRoot } from "react-dom/client";
 import { createInertiaApp } from "@inertiajs/react";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { LaravelReactI18nProvider } from "laravel-react-i18n";
+import { SearchProvider } from "./Context/SearchContext";
 
 const appName = import.meta.env.VITE_APP_NAME || "Laravel";
 
@@ -24,7 +25,9 @@ createInertiaApp({
                 fallbackLocale={"en"}
                 files={import.meta.glob("/lang/*.json")}
             >
-                <App {...props} />
+                <SearchProvider>
+                    <App {...props} />
+                </SearchProvider>
             </LaravelReactI18nProvider>,
         );
     },

@@ -1,18 +1,26 @@
 import { useState } from "react";
-import Dropdown from "@/Components/Dropdown";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
+import { useSearch } from "@/Context/SearchContext";
 
 export default function Authenticated({ children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
+    const { searchTerm, setSearchTerm } = useSearch();
 
     return (
         <div className="min-h-screen bg-gray-100">
+            <nav className="bg-white border-b border-gray-100 flex items-center h-16">
+                <div className="container max-w-8xl mx-auto sm:px-6 lg:px-8">
+                    <div className="w-full px-4 font-bold text-lg">
+                        総社高校排球部第二部室
+                    </div>
+                </div>
+            </nav>
             <nav className="bg-white border-b border-gray-100">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between h-16">
+                <div className="container max-w-8xl mx-auto sm:px-6 lg:px-8">
+                    <div className="w-full flex justify-between h-20 px-4">
                         <div className="flex">
                             <div className="hidden space-x-8 sm:-my-px sm:flex">
                                 <NavLink
@@ -24,8 +32,19 @@ export default function Authenticated({ children }) {
                             </div>
                         </div>
 
-                        <div className="hidden sm:flex sm:items-center sm:ms-6">
-                            <div className="ms-3 relative">
+                        <div className="hidden sm:flex sm:items-center">
+                            <div>
+                                <input
+                                    type="text"
+                                    value={searchTerm}
+                                    onChange={(e) =>
+                                        setSearchTerm(e.target.value)
+                                    }
+                                    placeholder="タイトルと日付で検索できます"
+                                    className="w-[300px] px-4 py-2 border rounded-full"
+                                />
+                            </div>
+                            <div className="ms-12 relative">
                                 <Link
                                     href={route("logout")}
                                     method="post"
@@ -37,7 +56,14 @@ export default function Authenticated({ children }) {
                             </div>
                         </div>
 
-                        <div className="-me-2 flex items-center sm:hidden">
+                        <div className="w-full flex justify-between items-center sm:hidden">
+                            <input
+                                type="text"
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                placeholder="タイトルと日付で検索できます"
+                                className="w-[300px] px-4 py-2 border rounded-full"
+                            />
                             <button
                                 onClick={() =>
                                     setShowingNavigationDropdown(

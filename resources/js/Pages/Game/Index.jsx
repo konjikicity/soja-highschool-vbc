@@ -1,15 +1,34 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import Fuse from "fuse.js";
+import { useState, useMemo } from "react";
 import { Head } from "@inertiajs/react";
+import { useSearch } from "@/Context/SearchContext";
 
 export default function Index({ auth, games }) {
+    const { searchTerm } = useSearch();
+
+    const options = {
+        keys: ["title", "format_game_date"],
+        includeScore: true,
+        threshold: 1,
+    };
+
+    const fuse = new Fuse(games, options);
+
+    const filteredGames = useMemo(() => {
+        return searchTerm
+            ? fuse.search(searchTerm).map((result) => result.item)
+            : games;
+    }, [games, searchTerm]);
+
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="試合動画" />
 
             <div className="max-w-8xl mx-auto sm:px-6 lg:px-8">
-                <div className="container my-12 mx-auto px-4 md:px-12">
+                <div className="container my-8 md:my-10 mx-auto md:px-12">
                     <div className="flex flex-wrap -mx-1 lg:-mx-4">
-                        {games.map((item, index) => (
+                        {filteredGames.map((item, index) => (
                             <div
                                 key={index}
                                 className="hover:opacity-40 my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/4"
