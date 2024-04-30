@@ -40,7 +40,7 @@ export default function Authenticated({ children }) {
                                     onChange={(e) =>
                                         setSearchTerm(e.target.value)
                                     }
-                                    placeholder="タイトルと日付で検索できます"
+                                    placeholder="タイトルと日付で検索"
                                     className="w-[300px] px-4 py-2 border rounded-full"
                                 />
                             </div>

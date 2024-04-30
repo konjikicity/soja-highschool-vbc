@@ -30,7 +30,6 @@ class UserResource extends Resource
                             ->maxLength(255),
                         Forms\Components\TextInput::make('login_id')
                             ->label('ログインID')
-                            ->email()
                             ->nullable()
                             ->maxLength(30),
                         Forms\Components\TextInput::make('password')
@@ -52,8 +51,8 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->label('名前')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('email')
-                    ->label('メールアドレス')
+                Tables\Columns\TextColumn::make('login_id')
+                    ->label('ログインID')
                     ->searchable(),
             ])
             ->filters([

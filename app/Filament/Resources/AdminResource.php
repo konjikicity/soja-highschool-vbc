@@ -52,8 +52,8 @@ class AdminResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->label('名前')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('email')
-                    ->label('メールアドレス')
+                Tables\Columns\TextColumn::make('login_id')
+                    ->label('ログインID')
                     ->searchable(),
             ])
             ->filters([
