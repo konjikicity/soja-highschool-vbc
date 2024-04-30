@@ -9,7 +9,7 @@ import { useLaravelReactI18n } from "laravel-react-i18n";
 
 export default function Login() {
     const { data, setData, post, processing, errors, reset } = useForm({
-        email: "",
+        login_id: "",
         password: "",
     });
 
@@ -33,20 +33,20 @@ export default function Login() {
 
             <form onSubmit={submit}>
                 <div>
-                    <InputLabel htmlFor="email" value={t("Email")} />
+                    <InputLabel htmlFor="login_id" value={t("LoginId")} />
 
                     <TextInput
-                        id="email"
-                        type="email"
-                        name="email"
-                        value={data.email}
+                        id="login_id"
+                        type="text"
+                        name="login_id"
+                        value={data.login_id}
                         className="mt-1 block w-full"
                         autoComplete="username"
                         isFocused={true}
-                        onChange={(e) => setData("email", e.target.value)}
+                        onChange={(e) => setData("login_id", e.target.value)}
                     />
 
-                    <InputError message={errors.email} className="mt-2" />
+                    <InputError message={errors.login_id} className="mt-2" />
                 </div>
 
                 <div className="mt-4">

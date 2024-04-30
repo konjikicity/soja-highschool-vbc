@@ -28,11 +28,11 @@ class UserResource extends Resource
                             ->label('名前')
                             ->nullable()
                             ->maxLength(255),
-                        Forms\Components\TextInput::make('email')
-                            ->label('メールアドレス')
+                        Forms\Components\TextInput::make('login_id')
+                            ->label('ログインID')
                             ->email()
                             ->nullable()
-                            ->maxLength(255),
+                            ->maxLength(30),
                         Forms\Components\TextInput::make('password')
                             ->label('パスワード')
                             ->password()

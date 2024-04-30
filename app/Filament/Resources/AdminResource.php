@@ -28,13 +28,10 @@ class AdminResource extends Resource
                             ->label('名前')
                             ->required()
                             ->maxLength(255),
-                        Forms\Components\TextInput::make('email')
-                            ->label('メールアドレス')
+                        Forms\Components\TextInput::make('login_id')
+                            ->label('ログインID')
                             ->required()
-                            ->email()
-                            ->nullable()
-                            ->required()
-                            ->maxLength(255),
+                            ->maxLength(30),
                         Forms\Components\TextInput::make('password')
                             ->label('パスワード')
                             ->password()
