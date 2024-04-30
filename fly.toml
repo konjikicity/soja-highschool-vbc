@@ -13,6 +13,7 @@ console_command = 'php /var/www/html/artisan tinker'
     PHP_VERSION = '8.3'
 
 [env]
+  APP_NAME='総社高校排球部 第二部室'
   APP_ENV = 'production'
   DB_CONNECTION = "pgsql"
   DB_HOST = "soja-highschool-vbc-db.internal"

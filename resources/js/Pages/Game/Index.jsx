@@ -1,6 +1,6 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import Fuse from "fuse.js";
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { Head } from "@inertiajs/react";
 import { useSearch } from "@/Context/SearchContext";
 
@@ -23,7 +23,7 @@ export default function Index({ auth, games }) {
 
     return (
         <AuthenticatedLayout user={auth.user}>
-            <Head title="試合動画" />
+            <Head title="試合一覧" />
 
             <div className="max-w-8xl mx-auto sm:px-6 lg:px-8">
                 <div className="container my-8 md:my-10 mx-auto md:px-12">

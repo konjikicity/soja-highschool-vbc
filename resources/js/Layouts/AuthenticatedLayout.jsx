@@ -14,7 +14,7 @@ export default function Authenticated({ children }) {
             <nav className="bg-white border-b border-gray-100 flex items-center h-16">
                 <div className="container max-w-8xl mx-auto sm:px-6 lg:px-8">
                     <div className="w-full px-4 font-bold text-lg">
-                        総社高校排球部第二部室
+                        総社高校排球部 第二部室
                     </div>
                 </div>
             </nav>

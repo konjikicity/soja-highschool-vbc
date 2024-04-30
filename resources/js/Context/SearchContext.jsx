@@ -20,6 +20,6 @@ export const SearchProvider = ({ children }) => {
 // カスタムフック
 export const useSearch = () => {
     const context = useContext(SearchContext);
-    console.log(context); // デバッグ出力
+
     return context;
 };
