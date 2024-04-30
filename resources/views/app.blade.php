@@ -4,8 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title inertia='title'>{{ config('app.name', 'Laravel') }}</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />
 
     <!-- Fonts -->

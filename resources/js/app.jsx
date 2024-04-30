@@ -7,7 +7,7 @@ import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { LaravelReactI18nProvider } from "laravel-react-i18n";
 import { SearchProvider } from "./Context/SearchContext";
 
-const appName = import.meta.env.VITE_APP_NAME || "Laravel";
+const appName = "総社高校排球部 第二部室";
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
