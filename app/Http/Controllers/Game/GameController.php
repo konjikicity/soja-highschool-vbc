@@ -16,13 +16,13 @@ class GameController extends Controller
      */
     public function __construct(GameService $gameService)
     {
-
         $this->gameService = $gameService;
     }
 
     public function index(): Response
     {
         $games = $this->gameService->index();
+
         return Inertia::render('Game/Index', ['games' => $games]);
     }
 }
