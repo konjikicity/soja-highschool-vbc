@@ -103,16 +103,17 @@ export default function Index({ auth, games }) {
                     </AnimatePresence>
                     <div className="hidden sm:block sm:mt-4">
                         <ReactPaginate
-                            previousLabel={"<"}
-                            nextLabel={">"}
-                            breakLabel={"..."}
+                            breakLabel="..."
                             pageCount={pageCount}
                             marginPagesDisplayed={2}
                             pageRangeDisplayed={5}
                             onPageChange={handlePageClick}
-                            containerClassName={"pagination"}
-                            subContainerClassName={"pages pagination"}
-                            activeClassName={"active"}
+                            containerClassName="pagination"
+                            pageClassName="page-item"
+                            pageLinkClassName="page-link"
+                            previousClassName="page-previou"
+                            nextClassName="page-next"
+                            activeClassName="active"
                         />
                     </div>
                 </div>

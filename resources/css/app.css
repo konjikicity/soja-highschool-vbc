@@ -7,20 +7,32 @@
     justify-content: center;
 }
 
-.pagination a {
+.page-link {
     color: black;
     float: left;
     padding: 12px 24px;
     text-decoration: none;
 }
 
-.pagination li.active {
+.page-next {
+    display: none;
+}
+
+.page-previou {
+    display: none;
+}
+
+.page-item {
+    margin: 0px 8px;
+}
+
+.page-item.active {
     background-color: black;
     color: #fff;
     border-radius: 5px;
 }
 
-.pagination li.active a {
+.pagination .page-item.active a {
     background-color: black;
     color: #fff;
     border-radius: 5px;
