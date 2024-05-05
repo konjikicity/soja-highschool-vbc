@@ -12,7 +12,6 @@ class GameRepository extends Controller
     {
         $games = Game::select([
             'title',
-            'description',
             'youtube_url',
             'game_date'
         ])->get();

@@ -13,7 +13,6 @@ class Game extends Model
 
     protected $fillable = [
         'title',
-        'description',
         'youtube_url',
         'game_date',
     ];
