@@ -29,6 +29,7 @@ class GameResource extends Resource
                             ->maxLength(255),
                         Forms\Components\TextInput::make('youtube_url')
                             ->label('YouTubeのURL')
+                            ->placeholder('YouTube動画のURLを登録してください')
                             ->required()
                             ->maxLength(255),
                         Forms\Components\DatePicker::make('game_date')

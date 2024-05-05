@@ -30,6 +30,7 @@ class PictureResource extends Resource
                             ->maxLength(255),
                         Forms\Components\TextInput::make('picture_url')
                             ->label('写真のURL')
+                            ->placeholder('Google Driveに保存した画像の共有URLを保存してください(URLを知っている人は閲覧可能設定にすること)')
                             ->required()
                             ->maxLength(255),
                         Forms\Components\DatePicker::make('take_picture_date')
@@ -45,6 +46,9 @@ class PictureResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title')
                     ->label('タイトル')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('picture_url')
+                    ->label('写真のURL')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('take_picture_date')
                     ->label('撮影日')
