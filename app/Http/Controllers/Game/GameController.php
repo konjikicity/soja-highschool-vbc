@@ -23,6 +23,6 @@ class GameController extends Controller
     {
         $games = $this->gameService->index();
 
-        return Inertia::render('Game/Index', ['games' => $games]);
+        return Inertia::render('Game/Index', ['games' => $games, 'isSearch' => true]);
     }
 }

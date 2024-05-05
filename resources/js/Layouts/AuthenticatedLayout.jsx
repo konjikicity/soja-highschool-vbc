@@ -2,10 +2,9 @@ import { useState } from "react";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { AnimatePresence, motion } from "framer-motion";
-import { Link } from "@inertiajs/react";
 import { useSearch } from "@/Context/SearchContext";
 
-export default function Authenticated({ children }) {
+export default function Authenticated({ children, isSearch = false }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { searchTerm, setSearchTerm } = useSearch();
 
@@ -58,15 +57,17 @@ export default function Authenticated({ children }) {
 
                         <div className="hidden sm:flex sm:items-center">
                             <div>
-                                <input
-                                    type="text"
-                                    value={searchTerm}
-                                    onChange={(e) =>
-                                        setSearchTerm(e.target.value)
-                                    }
-                                    placeholder="タイトルと日付で検索"
-                                    className="w-[300px] border rounded-full py-2 px-5 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500"
-                                />
+                                {isSearch && (
+                                    <input
+                                        type="text"
+                                        value={searchTerm}
+                                        onChange={(e) =>
+                                            setSearchTerm(e.target.value)
+                                        }
+                                        placeholder="タイトルと日付で検索"
+                                        className="w-[300px] border rounded-full py-2 px-5 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500"
+                                    />
+                                )}
                             </div>
                             <div className="ms-4">
                                 <NavLink
@@ -80,13 +81,17 @@ export default function Authenticated({ children }) {
                         </div>
 
                         <div className="w-full flex justify-between items-center sm:hidden">
-                            <input
-                                type="text"
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                                placeholder="タイトルと日付で検索できます"
-                                className="w-[300px] border rounded-full py-2 px-5 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500"
-                            />
+                            {isSearch && (
+                                <input
+                                    type="text"
+                                    value={searchTerm}
+                                    onChange={(e) =>
+                                        setSearchTerm(e.target.value)
+                                    }
+                                    placeholder="タイトルと日付で検索できます"
+                                    className="w-[300px] border rounded-full py-2 px-5 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500"
+                                />
+                            )}
 
                             <button
                                 onClick={() => setIsMenuOpen(!isMenuOpen)}

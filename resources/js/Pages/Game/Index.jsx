@@ -6,7 +6,7 @@ import { Head } from "@inertiajs/react";
 import { useSearch } from "@/Context/SearchContext";
 import ReactPaginate from "react-paginate";
 
-export default function Index({ auth, games }) {
+export default function Index({ auth, games, isSearch }) {
     const { searchTerm } = useSearch();
     const [currentPage, setCurrentPage] = useState(0);
     const [showScrollTop, setShowScrollTop] = useState(false);
@@ -57,7 +57,7 @@ export default function Index({ auth, games }) {
     };
 
     return (
-        <AuthenticatedLayout user={auth.user}>
+        <AuthenticatedLayout isSearch={isSearch}>
             <Head title="試合" />
             <div className="max-w-8xl mx-auto sm:px-6 lg:px-8">
                 <div className="container my-8 md:my-10 mx-auto md:px-12">
