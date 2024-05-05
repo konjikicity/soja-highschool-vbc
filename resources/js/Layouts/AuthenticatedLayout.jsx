@@ -112,29 +112,27 @@ export default function Authenticated({ children }) {
                                 exit="closed"
                                 variants={sidebarVariants}
                             >
-                                <motion.div className="h-screen bg-white relative">
-                                    <button
-                                        onClick={() => setIsMenuOpen(false)}
-                                        className="absolute top-4 right-4 p-2 rounded-md text-gray-400 hover:text-gray-500 focus:outline-none"
-                                    >
-                                        <svg
-                                            className="h-6 w-6"
-                                            stroke="currentColor"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
+                                <motion.div
+                                    className="w-full h-screen bg-gray-900 relative"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    <div className="flex">
+                                        <ResponsiveNavLink
+                                            method="post"
+                                            href={route("game.index")}
+                                            active={route().current(
+                                                "game.index",
+                                            )}
+                                            icon="court"
+                                            as="button"
                                         >
-                                            <path
-                                                className="black inline-flex"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth="2"
-                                                d="M6 18L18 6M6 6l12 12"
-                                            />
-                                        </svg>
-                                    </button>
+                                            試合
+                                        </ResponsiveNavLink>
+                                    </div>
                                     <ResponsiveNavLink
                                         method="post"
                                         href={route("logout")}
+                                        icon="logout"
                                         as="button"
                                     >
                                         ログアウト
