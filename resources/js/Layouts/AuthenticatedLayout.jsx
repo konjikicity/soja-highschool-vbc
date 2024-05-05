@@ -23,10 +23,11 @@ export default function Authenticated({ children }) {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100">
-            <nav className="bg-white border-b border-gray-100 flex items-center h-16">
-                <div className="container max-w-8xl mx-auto sm:px-6 lg:px-8">
-                    <div className="px-4 w-full font-bold text-lg">
+        <div className="min-h-screen bg-gray-900">
+            <nav className="bg-white flex items-center h-16">
+                <div className="flex items-center container max-w-8xl mx-auto sm:px-6 lg:px-8">
+                    <img src="/image/logo.png" alt="Logo" className="h-16" />
+                    <div className="w-full font-bold text-lg">
                         総社高校排球部 第二部室
                     </div>
                 </div>
@@ -35,12 +36,13 @@ export default function Authenticated({ children }) {
                 <div className="container max-w-8xl mx-auto sm:px-6 lg:px-8">
                     <div className="w-full flex justify-between h-20 px-4">
                         <div className="flex">
-                            <div className="hidden space-x-8 sm:-my-px sm:flex">
+                            <div className="hidden space-x-4 sm:-my-px sm:flex">
                                 <NavLink
                                     href={route("game.index")}
                                     active={route().current("game.index")}
+                                    icon="court"
                                 >
-                                    試合一覧
+                                    試合
                                 </NavLink>
                             </div>
                         </div>
@@ -54,7 +56,7 @@ export default function Authenticated({ children }) {
                                         setSearchTerm(e.target.value)
                                     }
                                     placeholder="タイトルと日付で検索"
-                                    className="w-[300px] px-4 py-2 border rounded-full"
+                                    className="w-[300px] border rounded-full py-2 px-5 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500"
                                 />
                             </div>
                             <div className="ms-12 relative">
@@ -62,7 +64,7 @@ export default function Authenticated({ children }) {
                                     href={route("logout")}
                                     method="post"
                                     as="button"
-                                    className="hover:opacity-40"
+                                    className="hover:text-red-400 transition duration-100 ease-in-out"
                                 >
                                     ログアウト
                                 </Link>
@@ -75,7 +77,7 @@ export default function Authenticated({ children }) {
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                                 placeholder="タイトルと日付で検索できます"
-                                className="w-[300px] px-4 py-2 border rounded-full"
+                                className="w-[300px] border rounded-full py-2 px-5 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500"
                             />
 
                             <button

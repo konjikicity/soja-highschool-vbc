@@ -1,8 +1,10 @@
 import { Link } from "@inertiajs/react";
+import { GiTennisCourt } from "react-icons/gi";
 
 export default function NavLink({
     active = false,
     className = "",
+    icon = "",
     children,
     ...props
 }) {
@@ -10,13 +12,14 @@ export default function NavLink({
         <Link
             {...props}
             className={
-                "inline-flex items-center px-1 pt-1 border-b-2 leading-5 transition duration-150 ease-in-out focus:outline-none " +
                 (active
-                    ? "border-indigo-400 text-gray-900 focus:border-indigo-700 "
-                    : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:text-gray-700 focus:border-gray-300 ") +
+                    ? "inline-flex bg-red-400 items-center p-5 text-white my-4 rounded"
+                    : "inline-flex items-center hover:bg-gray-400 my-2 p-5 rounded transition duration-150 ease-in-out focus-outline-none") +
                 className
             }
         >
+            {icon == "court" && <GiTennisCourt className="text-lg mr-2" />}
+
             {children}
         </Link>
     );

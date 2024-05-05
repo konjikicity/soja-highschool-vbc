@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,8 +10,8 @@
 }
 
 .page-link {
-    color: black;
     float: left;
+    color: #fff;
     padding: 12px 24px;
     text-decoration: none;
 }
@@ -26,14 +28,8 @@
     margin: 0px 8px;
 }
 
-.page-item.active {
-    background-color: black;
-    color: #fff;
-    border-radius: 5px;
-}
-
 .pagination .page-item.active a {
-    background-color: black;
+    background-color: #f87171;
     color: #fff;
     border-radius: 5px;
 }

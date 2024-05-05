@@ -85,12 +85,12 @@ export default function Index({ auth, games }) {
                                                 className="block h-auto w-full"
                                                 src={item.image_url}
                                             />
-                                            <header className="flex items-center justify-between leading-tight p-2 md:p-4">
+                                            <header className="bg-white text-black flex items-center justify-between leading-tight p-2 md:p-4">
                                                 <p className="text-lg font-bold text-grey-darker">
                                                     {item.title}
                                                 </p>
                                             </header>
-                                            <footer className="flex items-center justify-between leading-none p-2 md:p-4">
+                                            <footer className="bg-white text-black flex items-center justify-between leading-none p-2 md:p-4">
                                                 <p className="text-grey-darker text-sm">
                                                     {item.format_game_date}
                                                 </p>
@@ -125,7 +125,7 @@ export default function Index({ auth, games }) {
                     >
                         <button
                             onClick={scrollToTop}
-                            className="fixed bottom-5 right-5 w-12 h-12 rounded-full bg-black text-white text-3xl"
+                            className="fixed bottom-5 right-5 w-12 h-12 rounded-full bg-red-400 text-white text-3xl"
                         >
                             ↑
                         </button>
