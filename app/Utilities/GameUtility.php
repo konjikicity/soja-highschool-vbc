@@ -2,9 +2,7 @@
 
 namespace App\Utilities;
 
-use App\Http\Controllers\Controller;
-
-class GameUtility extends Controller
+class GameUtility
 {
     public static function getYoutubeThumbnail(string $youtubeUrl): string
     {

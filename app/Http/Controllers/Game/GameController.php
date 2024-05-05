@@ -12,7 +12,7 @@ class GameController extends Controller
     private GameService $gameService;
 
     /**
-     * Display the login view.
+     * Display the Game view.
      */
     public function __construct(GameService $gameService)
     {

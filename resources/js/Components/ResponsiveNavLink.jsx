@@ -1,6 +1,7 @@
 import { Link } from "@inertiajs/react";
 import { BiLogOut } from "react-icons/bi";
 import { GiTennisCourt } from "react-icons/gi";
+import { AiOutlinePicture } from "react-icons/ai";
 
 export default function ResponsiveNavLink({
     active = false,
@@ -12,11 +13,11 @@ export default function ResponsiveNavLink({
     return (
         <Link
             {...props}
-            className={`flex items-center justify-center font-bold w-full p-5 text-white ${
-                active ? "bg-red-400" : ""
-            } ${className}`}
+            className={`flex items-center justify-center font-bold w-full p-5 text-white ${active ? "bg-red-400" : ""
+                } ${className}`}
         >
             {icon == "court" && <GiTennisCourt className="text-lg mr-4" />}
+            {icon == "picture" && <AiOutlinePicture className="text-lg mr-4" />}
             {icon == "logout" && <BiLogOut className="text-lg mr-4" />}
             {children}
         </Link>

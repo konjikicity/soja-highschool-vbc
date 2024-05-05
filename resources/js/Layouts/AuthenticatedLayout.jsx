@@ -34,15 +34,24 @@ export default function Authenticated({ children }) {
             </nav>
             <nav className="bg-white border-b border-gray-100">
                 <div className="container max-w-8xl mx-auto sm:px-6 lg:px-8">
-                    <div className="w-full flex justify-between h-20 px-4">
-                        <div className="flex">
-                            <div className="hidden space-x-4 sm:-my-px sm:flex">
+                    <div className="w-full flex justify-between items-center h-20 px-4">
+                        <div className="hidden sm:flex sm:items-center">
+                            <div className="mr-4">
                                 <NavLink
                                     href={route("game.index")}
                                     active={route().current("game.index")}
                                     icon="court"
                                 >
                                     試合
+                                </NavLink>
+                            </div>
+                            <div>
+                                <NavLink
+                                    href={route("picture.index")}
+                                    active={route().current("picture.index")}
+                                    icon="picture"
+                                >
+                                    写真
                                 </NavLink>
                             </div>
                         </div>
@@ -59,15 +68,14 @@ export default function Authenticated({ children }) {
                                     className="w-[300px] border rounded-full py-2 px-5 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500"
                                 />
                             </div>
-                            <div className="ms-12 relative">
-                                <Link
+                            <div className="ms-4">
+                                <NavLink
                                     href={route("logout")}
                                     method="post"
-                                    as="button"
-                                    className="hover:text-red-400 transition duration-100 ease-in-out"
+                                    icon="logout"
                                 >
                                     ログアウト
-                                </Link>
+                                </NavLink>
                             </div>
                         </div>
 
@@ -116,19 +124,24 @@ export default function Authenticated({ children }) {
                                     className="w-full h-screen bg-gray-900 relative"
                                     onClick={() => setIsMenuOpen(false)}
                                 >
-                                    <div className="flex">
-                                        <ResponsiveNavLink
-                                            method="post"
-                                            href={route("game.index")}
-                                            active={route().current(
-                                                "game.index",
-                                            )}
-                                            icon="court"
-                                            as="button"
-                                        >
-                                            試合
-                                        </ResponsiveNavLink>
-                                    </div>
+                                    <ResponsiveNavLink
+                                        href={route("game.index")}
+                                        active={route().current("game.index")}
+                                        icon="court"
+                                        as="button"
+                                    >
+                                        試合
+                                    </ResponsiveNavLink>
+                                    <ResponsiveNavLink
+                                        href={route("picture.index")}
+                                        active={route().current(
+                                            "picture.index",
+                                        )}
+                                        icon="picture"
+                                        as="button"
+                                    >
+                                        写真
+                                    </ResponsiveNavLink>
                                     <ResponsiveNavLink
                                         method="post"
                                         href={route("logout")}

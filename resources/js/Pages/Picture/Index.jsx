@@ -6,36 +6,37 @@ import { Head } from "@inertiajs/react";
 import { useSearch } from "@/Context/SearchContext";
 import ReactPaginate from "react-paginate";
 
-export default function Index({ auth, games }) {
+export default function Index({ auth, pictures }) {
     const { searchTerm } = useSearch();
     const [currentPage, setCurrentPage] = useState(0);
     const [showScrollTop, setShowScrollTop] = useState(false);
+    const [modalImage, setModalImage] = useState(null);
     const pageSize = 8;
 
     const options = {
-        keys: ["title", "format_game_date"],
+        keys: ["title", "format_picture_date"],
         includeScore: true,
         threshold: 0.1,
     };
 
-    const fuse = new Fuse(games, options);
+    const fuse = new Fuse(pictures, options);
 
-    const filteredGames = useMemo(() => {
+    const filteredPictures = useMemo(() => {
         return searchTerm
             ? fuse.search(searchTerm).map((result) => result.item)
-            : games;
-    }, [games, searchTerm]);
+            : pictures;
+    }, [pictures, searchTerm]);
 
-    const pageCount = Math.ceil(filteredGames.length / pageSize);
+    const pageCount = Math.ceil(filteredPictures.length / pageSize);
 
     const handlePageClick = ({ selected }) => {
         setCurrentPage(selected);
     };
 
-    const currentGames = useMemo(() => {
+    const currentPictures = useMemo(() => {
         const offset = currentPage * pageSize;
-        return filteredGames.slice(offset, offset + pageSize);
-    }, [currentPage, filteredGames, pageSize]);
+        return filteredPictures.slice(offset, offset + pageSize);
+    }, [currentPage, filteredPictures, pageSize]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -43,7 +44,6 @@ export default function Index({ auth, games }) {
         };
 
         window.addEventListener("scroll", handleScroll);
-
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
@@ -56,9 +56,17 @@ export default function Index({ auth, games }) {
         });
     };
 
+    const handleImageClick = (url) => {
+        setModalImage(url);
+    };
+
+    const closeImageModal = () => {
+        setModalImage(null);
+    };
+
     return (
         <AuthenticatedLayout user={auth.user}>
-            <Head title="試合" />
+            <Head title="写真" />
             <div className="max-w-8xl mx-auto sm:px-6 lg:px-8">
                 <div className="container my-8 md:my-10 mx-auto md:px-12">
                     <AnimatePresence mode="wait">
@@ -70,32 +78,22 @@ export default function Index({ auth, games }) {
                             transition={{ duration: 0.5 }}
                             className="flex flex-wrap mx-4 lg:-mx-4"
                         >
-                            {currentGames.map((item, index) => (
+                            {currentPictures.map((item, index) => (
                                 <div
                                     key={index}
-                                    className="lg:hover:opacity-40 transition my-4 w-full md:w-1/2 lg:px-4 lg:w-1/4"
+                                    className="cursor-pointer lg:hover:opacity-40 transition my-4 w-full md:w-1/2 lg:px-4 lg:w-1/4"
+                                    onClick={() =>
+                                        handleImageClick(
+                                            item.format_picture_url,
+                                        )
+                                    }
                                 >
                                     <article className="overflow-hidden rounded-lg shadow-lg">
-                                        <a
-                                            href={item.youtube_url}
-                                            target="_blank"
-                                        >
-                                            <img
-                                                alt="Placeholder"
-                                                className="block h-auto w-full"
-                                                src={item.image_url}
-                                            />
-                                            <header className="bg-white text-black flex items-center justify-between leading-tight p-2 md:p-4">
-                                                <p className="text-lg font-bold text-grey-darker">
-                                                    {item.title}
-                                                </p>
-                                            </header>
-                                            <footer className="bg-white text-black flex items-center justify-between leading-none p-2 md:p-4">
-                                                <p className="text-grey-darker text-sm">
-                                                    {item.format_game_date}
-                                                </p>
-                                            </footer>
-                                        </a>
+                                        <img
+                                            alt="Placeholder"
+                                            className="block h-auto w-full"
+                                            src={item.format_picture_url}
+                                        />
                                     </article>
                                 </div>
                             ))}
@@ -129,6 +127,27 @@ export default function Index({ auth, games }) {
                         >
                             ↑
                         </button>
+                    </motion.div>
+                )}
+                {modalImage && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.4, delay: 0.1 }}
+                    >
+                        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
+                            <button
+                                onClick={closeImageModal}
+                                className="absolute top-5 right-5 text-white text-4xl"
+                            >
+                                ×
+                            </button>
+                            <img
+                                src={modalImage}
+                                className="rounded max-w-[90%] max-h-[90%]"
+                                alt="Expanded"
+                            />
+                        </div>
                     </motion.div>
                 )}
             </div>
