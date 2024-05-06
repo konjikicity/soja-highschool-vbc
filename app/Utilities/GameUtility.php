@@ -19,6 +19,6 @@ class GameUtility
         }
 
         // 当てはまらない場合ダミーURLを返す
-        return 'https://picsum.photos/200?grayscale';
+        return 'https://picsum.photos/200/150?grayscale';
     }
 }
