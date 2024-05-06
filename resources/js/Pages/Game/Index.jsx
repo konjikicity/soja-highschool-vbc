@@ -80,12 +80,12 @@ export default function Index({ auth, games, isSearch }) {
                                             href={item.youtube_url}
                                             target="_blank"
                                         >
-                                            <img
-                                                alt="Placeholder"
-                                                className="block h-auto w-full"
-                                                src={item.image_url}
-                                            />
-                                            <header className="bg-white text-black flex items-center justify-between leading-tight p-2 md:p-4">
+                                            {/* <img */}
+                                            {/*     alt="Placeholder" */}
+                                            {/*     className="block h-auto w-full" */}
+                                            {/*     src={item.image_url} */}
+                                            {/* /> */}
+                                            <header className="h-20 bg-white text-black flex items-center justify-between leading-tight p-2 md:p-4">
                                                 <p className="text-lg font-bold text-grey-darker">
                                                     {item.title}
                                                 </p>

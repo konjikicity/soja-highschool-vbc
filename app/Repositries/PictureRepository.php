@@ -13,8 +13,11 @@ class PictureRepository extends Controller
         $pictures = Picture::select([
             'title',
             'picture_url',
-            'take_picture_date'
-        ])->get();
+            'take_picture_date',
+            'created_at'
+        ])
+            ->orderByDesc('created_at')
+            ->get();
 
         return $pictures;
     }

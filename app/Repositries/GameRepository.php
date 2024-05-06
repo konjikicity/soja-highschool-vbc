@@ -13,8 +13,11 @@ class GameRepository extends Controller
         $games = Game::select([
             'title',
             'youtube_url',
-            'game_date'
-        ])->get();
+            'game_date',
+            'created_at'
+        ])
+            ->orderByDesc('created_at')
+            ->get();
 
         return $games;
     }
