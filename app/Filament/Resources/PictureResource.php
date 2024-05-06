@@ -36,6 +36,11 @@ class PictureResource extends Resource
                         Forms\Components\DatePicker::make('take_picture_date')
                             ->label('撮影日')
                             ->required(),
+                        Tables\Columns\TextColumn::make('created_at')
+                            ->label('登録日')
+                            ->date('Y年n月j日')
+                            ->sortable()
+                            ->searchable(),
                     ])->columns(1)
             ]);
     }
@@ -53,8 +58,15 @@ class PictureResource extends Resource
                 Tables\Columns\TextColumn::make('take_picture_date')
                     ->label('撮影日')
                     ->date('Y年n月j日')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('登録日')
+                    ->date('Y年n月j日')
+                    ->sortable()
                     ->searchable(),
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([
                 //
             ])

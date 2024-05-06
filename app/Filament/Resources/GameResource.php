@@ -52,8 +52,15 @@ class GameResource extends Resource
                 Tables\Columns\TextColumn::make('game_date')
                     ->label('試合日')
                     ->date('Y年n月j日')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('登録日')
+                    ->date('Y年n月j日')
+                    ->sortable()
                     ->searchable(),
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([])
             ->actions([
                 Tables\Actions\EditAction::make(),
