@@ -22,7 +22,7 @@ export default function Authenticated({ children, isSearch = false }) {
     };
 
     return (
-        <div className="min-h-screen bg-gray-900">
+        <div className="h-full bg-gray-900">
             <nav className="bg-white flex items-center h-16">
                 <div className="flex items-center container max-w-8xl mx-auto sm:px-6 lg:px-8">
                     <img src="/image/logo.png" alt="Logo" className="h-16" />

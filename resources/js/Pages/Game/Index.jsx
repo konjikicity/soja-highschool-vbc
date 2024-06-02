@@ -10,7 +10,7 @@ export default function Index({ auth, games, isSearch }) {
     const { searchTerm } = useSearch();
     const [currentPage, setCurrentPage] = useState(0);
     const [showScrollTop, setShowScrollTop] = useState(false);
-    const pageSize = 8;
+    const pageSize = 20;
 
     const options = {
         keys: ["title", "format_game_date"],
